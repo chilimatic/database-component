@@ -1,0 +1,29 @@
+{
+  "name": "chilimatic/database-component",
+  "description": "database component within the chilimatic framework",
+  "type": "library",
+  "license": "MIT",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Jakob Oberhummer",
+      "email": "office@chilimatic.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4",
+    "chilimatic/cache-component": "1.*",
+    "chilimatic/interfaces-component": "1.*",
+    "chilimatic/interpreter-component": "1.*",
+    "chilimatic/validator-component": "1.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "chilimatic\\lib\\Database\\": "src/"
+    }
+  }
+}
