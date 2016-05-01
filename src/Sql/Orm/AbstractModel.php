@@ -8,13 +8,14 @@
  * File: abstractmodel.class.php
  */
 namespace chilimatic\lib\Database\Sql\Orm;
+use chilimatic\lib\Database\Model\IModel;
 
 /**
  * Class AbstractModel
  *
  * @package chilimatic\lib\Database\orm
  */
-abstract class AbstractModel implements \JsonSerializable
+abstract class AbstractModel implements IModel
 {
 
     /**
