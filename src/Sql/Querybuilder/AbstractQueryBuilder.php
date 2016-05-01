@@ -9,11 +9,12 @@
  */
 namespace chilimatic\lib\Database\Sql\Querybuilder;
 
-use chilimatic\lib\Cache\Engine\CacheInterface;
+use chilimatic\lib\Cache\Engine\ICache;
 use chilimatic\lib\Database\AbstractDatabase;
 use chilimatic\lib\Database\Cache\Handler\ModelCache;
 use chilimatic\lib\Database\sql\orm\AbstractModel;
 use chilimatic\lib\Database\Sql\Querybuilder\Meta\AbstractSQLTableData;
+use chilimatic\lib\Interfaces\IFlyWeightTransformer;
 use chilimatic\lib\Parser\Annotation\AnnotationOrmParser;
 
 /**
@@ -26,12 +27,8 @@ abstract class AbstractQueryBuilder implements IQueryBuilder
     /**
      * @var string
      */
-    const TABLE_DATA_INDEX = 'tableData';
-
-    /**
-     * @var string
-     */
-    const RELATION_INDEX = 'relationList';
+    const TABLE_DATA_INDEX  = 'tableData';
+    const RELATION_INDEX    = 'relationList';
 
 
     /**
@@ -66,9 +63,14 @@ abstract class AbstractQueryBuilder implements IQueryBuilder
     protected $position;
 
     /**
-     * @var \chilimatic\lib\interfaces\IFlyWeightTransformer
+     * @var IFlyWeightTransformer
      */
     protected $paramTransformer;
+
+    /**
+     * @var array
+     */
+    protected $relation;
 
     /**
      * constructor
@@ -95,9 +97,9 @@ abstract class AbstractQueryBuilder implements IQueryBuilder
             return $hd[1];
         }
 
-        $table = substr($reflection->getName(), strlen($reflection->getNamespaceName()));
+        $table = mb_substr($reflection->getName(), mb_strlen($reflection->getNamespaceName()));
 
-        return strtolower(str_replace('\\', '', $table));
+        return mb_strtolower(str_replace('\\', '', $table));
     }
 
     /**

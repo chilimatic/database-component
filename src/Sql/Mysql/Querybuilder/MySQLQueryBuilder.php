@@ -1,8 +1,9 @@
 <?php
 namespace chilimatic\lib\Database\Sql\Mysql\Querybuilder;
 
+use chilimatic\lib\Cache\Engine\CacheFactory;
+use chilimatic\lib\Cache\Engine\ICache;
 use chilimatic\lib\Database\AbstractDatabase;
-
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\Meta\MySQLTableData;
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\Strategy\MySQLDeleteStrategy;
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\Strategy\MySQLInsertStrategy;
@@ -243,7 +244,7 @@ class MySQLQueryBuilder extends AbstractQueryBuilder
     }
 
     /**
-     * @return \SPLFixedArray
+     * @return \SplFixedArray
      */
     public function getRelation()
     {
@@ -251,11 +252,11 @@ class MySQLQueryBuilder extends AbstractQueryBuilder
     }
 
     /**
-     * @param \SPLFixedArray $relation
+     * @param \SplFixedArray $relation
      *
      * @return $this
      */
-    public function setRelation(\SPLFixedArray $relation)
+    public function setRelation(\SplFixedArray $relation)
     {
         $this->relation = $relation;
 
@@ -263,7 +264,7 @@ class MySQLQueryBuilder extends AbstractQueryBuilder
     }
 
     /**
-     * @return \chilimatic\lib\cache\engine\CacheInterface
+     * @return \chilimatic\lib\Cache\Engine\ICache
      */
     public function getCache()
     {
@@ -271,11 +272,11 @@ class MySQLQueryBuilder extends AbstractQueryBuilder
     }
 
     /**
-     * @param \chilimatic\lib\cache\engine\CacheInterface $cache
+     * @param \chilimatic\lib\Cache\Engine\ICache $cache
      *
      * @return $this
      */
-    public function setCache(CacheInterface $cache)
+    public function setCache(ICache $cache)
     {
         $this->cache = $cache;
 

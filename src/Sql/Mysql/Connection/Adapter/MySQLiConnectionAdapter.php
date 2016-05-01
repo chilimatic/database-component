@@ -44,6 +44,8 @@ class MySQLiConnectionAdapter extends AbstractSQLConnectionAdapter
     }
 
     /**
+     * @param \mysqli_result $result
+     * @param $returnMode
      * @return \Generator
      */
     public function rowGenerator(\mysqli_result $result, $returnMode)
@@ -127,11 +129,11 @@ class MySQLiConnectionAdapter extends AbstractSQLConnectionAdapter
      * @param string $sql
      * @param array $options
      *
-     * @return AbstractStatement $statement
+     * @return \mysqli_stmt $statement
      */
-    public function prepare($sql,array $options = [])
+    public function prepare($sql, array $options = [])
     {
-        return new MysqliStatement($this->getResource(), $sql, $options);
+        return new \mysqli_stmt($this->getResource(), $sql);
     }
 
     /**

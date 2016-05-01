@@ -5,7 +5,8 @@ namespace chilimatic\lib\Database\Connection;
  * Interface IDatabaseConnectionAdapter
  * @package chilimatic\lib\Database\Connection
  */
-interface IDatabaseConnectionAdapter {
+interface IDatabaseConnectionAdapter
+{
 
     /**
      * @param IDatabaseConnectionSettings $connectionSettings

@@ -15,6 +15,9 @@ class PDOConnectionAdapter extends AbstractSQLConnectionAdapter
      */
     use MySQLConnectionTypeTrait;
 
+    /**
+     * @return void
+     */
     public function initResource()
     {
         $this->findConnectionType();

@@ -36,9 +36,9 @@ class MySQLConnection extends AbstractSQLConnection
      *
      * @var string
      */
-    const CONNECTION_PDO = 'pdo';
-    const CONNECTION_MYSQLI = 'mysqli';
-    const CONNECTION_MOCK = 'mock';
+    const CONNECTION_PDO        = 'pdo';
+    const CONNECTION_MYSQLI     = 'mysqli';
+    const CONNECTION_MOCK       = 'mock';
 
 
     /**

@@ -1,5 +1,8 @@
 <?php
 namespace chilimatic\lib\Database\Sql\Querybuilder;
+
+use chilimatic\lib\Database\Exception\QueryBuilderException;
+
 /**
  *
  * @author j
@@ -24,7 +27,7 @@ Trait ConsistencyTrait
 
         foreach ($relationList as $entry) {
             if (!class_exists($entry['model'])) {
-                throw new \ErrorException($entry['model'] . ' Relations Class does not exist!');
+                throw new QueryBuilderException($entry['model'] . ' Relations Class does not exist!');
             }
         }
 

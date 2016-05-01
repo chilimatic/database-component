@@ -17,31 +17,31 @@ abstract class AbstractSQLConnectionAdapter implements IDatabaseConnectionAdapte
      *
      * @var string
      */
-    const RESULT_TYPE_INDEX = 'type';
-    const RESULT_MODE_INDEX = 'result_mode';
-    const RESULT_RETURN_MODE_INDEX = 'return_mode';
+    const RESULT_TYPE_INDEX         = 'type';
+    const RESULT_MODE_INDEX         = 'result_mode';
+    const RESULT_RETURN_MODE_INDEX  = 'return_mode';
 
     /**
      * possible return types
      *
      * @var string
      */
-    const RETURN_TYPE_OBJ = 'object';
-    const RETURN_TYPE_ASSOC = 'assoc';
-    const RETURN_TYPE_NUM = 'num';
-    const RETURN_TYPE_MYSQLI_ROW = 'row';
-    const RETURN_TYPE_BOTH = 'both';
+    const RETURN_TYPE_OBJ           = 'object';
+    const RETURN_TYPE_ASSOC         = 'assoc';
+    const RETURN_TYPE_NUM           = 'num';
+    const RETURN_TYPE_MYSQLI_ROW    = 'row';
+    const RETURN_TYPE_BOTH          = 'both';
 
     /**
      * return value types
      *
      * @var string
      */
-    const RESULT_TYPE_GENERATOR = 'generator';
-    const RESULT_TYPE_ASSOC_ARRAY = 'assoc_array';
-    const RESULT_TYPE_NUM_ARRAY = 'num_array';
-    const RESULT_TYPE_OBJECT_ARRAY = 'obj_array';
-    const RESULT_TYPE_ITERATOR = 'iterator';
+    const RESULT_TYPE_GENERATOR     = 'generator';
+    const RESULT_TYPE_ASSOC_ARRAY   = 'assoc_array';
+    const RESULT_TYPE_NUM_ARRAY     = 'num_array';
+    const RESULT_TYPE_OBJECT_ARRAY  = 'obj_array';
+    const RESULT_TYPE_ITERATOR      = 'iterator';
 
     /**
      * @var mixed

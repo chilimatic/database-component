@@ -10,17 +10,18 @@ interface IDatabaseConnection
 {
 
     /**
+     * int representations of
      * binary values for connection roles
      */
-    const CONNECTION_ROLE_MASTER = 0b001;
-    const CONNECTION_ROLE_SLAVE = 0b010;
+    const CONNECTION_ROLE_MASTER    = 1;
+    const CONNECTION_ROLE_SLAVE     = 2;
 
     /**
      * amount of default reconnect tries
      *
      * @var int
      */
-    const MAX_DEFAULT_RECONNECTS = 3;
+    const MAX_DEFAULT_RECONNECTS    = 3;
 
     /**
      * <p>

@@ -14,8 +14,8 @@ class MySQLConnectionSettings extends AbstractSQLConnectionSettings
     /**
      * Mysql default Port
      *
-     * @validator (name="type\scalar\isInt", expect="true")
-     * @validator (name="generic\NotEmpty")
+     * @validator (name="Type\Scalar\IsInt", expect="true")
+     * @validator (name="Generic\NotEmpty")
      *
      * @var int
      */
@@ -23,14 +23,14 @@ class MySQLConnectionSettings extends AbstractSQLConnectionSettings
 
     /**
      * connection type
-     * @validator (name="type\scalar\isBool", expect="true", mandatory="true")
+     * @validator (name="Type\Scalar\IsBool", expect="true", mandatory="true")
      *
      * @var bool
      */
     private $persistent = false;
 
     /**
-     * @validator (name="type\scalar\isString", expect="true", operator="&", mandatory="false")
+     * @validator (name="Type\Scalar\IsString", expect="true", operator="&", mandatory="false")
      *
      * @var string
      */
@@ -45,18 +45,16 @@ class MySQLConnectionSettings extends AbstractSQLConnectionSettings
      * @param string $host
      * @param string $username
      * @param string $password
-     * @param null|null $database
+     * @param null|string $database
      * @param null|int $port
      * @param array $settingList
-     *
-     * @return mixed
      */
-    public function setConnectionParam($host, $username, $password, $database = null, $port = null,  $settingList = [])
+    public function setConnectionParam($host, $username, $password, $database = null, $port = null, array $settingList = [])
     {
-        parent::setConnectionParam($host, $username, $password, $database, $port,  $settingList);
+        parent::setConnectionParam($host, $username, $password, $database, $settingList,  $settingList);
 
         // if there is no port set the default port
-        if (!$port && !$this->getPort()) {
+        if (!$settingList && !$this->getPort()) {
             $this->setPort(self::MYSQL_DEFAULT_PORT);
         }
     }
@@ -66,13 +64,14 @@ class MySQLConnectionSettings extends AbstractSQLConnectionSettings
      *
      * @return void
      */
-    public function setSettings(array $settingList = []) {
+    public function setSettings(array $settingList = [])
+    {
         if (!$settingList) {
             return;
         }
 
         if (isset($settingList['persistent'])) {
-            $this->setPersistent($settingList['persistent']);
+            $this->setPersistent( (bool) $settingList['persistent']);
         }
 
         if (isset($settingList['charset'])) {
@@ -108,7 +107,7 @@ class MySQLConnectionSettings extends AbstractSQLConnectionSettings
      */
     public function setPersistent($persistent)
     {
-        $this->persistent = $persistent;
+        $this->persistent = (bool) $persistent;
 
         return $this;
     }

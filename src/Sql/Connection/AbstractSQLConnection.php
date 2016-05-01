@@ -75,7 +75,8 @@ abstract class AbstractSQLConnection implements IDatabaseConnection, ISQLConnect
      * @param string $adapterName
      * @throws \chilimatic\lib\Database\Exception\DatabaseException
      */
-    public function __construct(IDatabaseConnectionSettings $connectionSettings, $adapterName = '') {
+    public function __construct(IDatabaseConnectionSettings $connectionSettings, $adapterName = '') 
+    {
         // initializes the needed steps for the Connection
         $this->prepareAndInitializeAdapter($connectionSettings, $adapterName);
     }
@@ -164,7 +165,7 @@ abstract class AbstractSQLConnection implements IDatabaseConnection, ISQLConnect
      */
     public function setSocket($socket)
     {
-        $this->socket = $socket;
+        $this->socket = (bool) $socket;
 
         return $this;
     }
@@ -172,7 +173,8 @@ abstract class AbstractSQLConnection implements IDatabaseConnection, ISQLConnect
     /**
      * increments the reconnect counter
      */
-    public function increaseReconnectCount() {
+    public function increaseReconnectCount()
+    {
         $this->reconnectCount++;
     }
 

@@ -39,4 +39,9 @@ abstract class AbstractDatabase implements DatabaseInterface
      * @return mixed
      */
     abstract public function prepare($query);
+
+    /**
+     * @return mixed
+     */
+    abstract public function getDb();
 }

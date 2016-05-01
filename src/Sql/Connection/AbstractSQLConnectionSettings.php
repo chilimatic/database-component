@@ -18,8 +18,8 @@ abstract class AbstractSQLConnectionSettings implements IDatabaseConnectionSetti
     use PropertyValidatorGeneratorTrait;
 
     /**
-     * @validator (name="type\scalar\isString")
-     * @validator (name="generic\NotEmpty")
+     * @validator (name="Type\Scalar\IsString")
+     * @validator (name="Generic\NotEmpty")
      *
      * the host ip
      *
@@ -28,8 +28,8 @@ abstract class AbstractSQLConnectionSettings implements IDatabaseConnectionSetti
     private $host;
 
     /**
-     * @validator (name="type\scalar\isString")
-     * @validator (name="generic\NotEmpty")
+     * @validator (name="Type\Scalar\IsString")
+     * @validator (name="Generic\NotEmpty")
      *
      * the username
      *
@@ -38,8 +38,8 @@ abstract class AbstractSQLConnectionSettings implements IDatabaseConnectionSetti
     private $username;
 
     /**
-     * @validator (name="type\scalar\isString")
-     * @validator (name="generic\NotEmpty")
+     * @validator (name="Type\Scalar\IsString")
+     * @validator (name="Generic\NotEmpty")
      * the password
      *
      * @var string
@@ -47,43 +47,44 @@ abstract class AbstractSQLConnectionSettings implements IDatabaseConnectionSetti
     private $password;
 
     /**
-     * @validator (name="type\scalar\isString", mandatory="false")
+     * @validator (name="Type\Scalar\IsString", mandatory="false")
      *
      * @var string
      */
     private $database;
 
     /**
-     * @validator (name="type\scalar\isInt", mandatory="false")
+     * @validator (name="Type\Scalar\IsInt", mandatory="false")
      *
      * @var int
      */
     private $port;
 
+    /**
+     * AbstractSQLConnectionSettings constructor.
+     * @param string $host
+     * @param string $username
+     * @param string $password
+     * @param null|string $database
+     * @param null|string $port
+     * @param array $settingList
+     */
+    public function __construct($host, $username, $password, $database = null, $port = null, array $settingList = [])
+    {
+       $this->setConnectionParam($host, $username, $password, $database, $port, $settingList);
+    }
 
     /**
      * @param string $host
      * @param string $username
      * @param string $password
-     * @param string $database
-     * @param int $port
-     * @param array $settingList
-     */
-    public function __construct($host, $username, $password, $database = null, $port = null, $settingList = []) {
-       $this->setConnectionParam($host, $username, $password, $database, $port, $settingList);
-    }
-
-    /**
-     * @param $host
-     * @param $username
-     * @param $password
-     * @param string $database
-     * @param int $port
+     * @param string|null $database
+     * @param null|int $port
      * @param array $settingList
      *
-     * @return mixed
+     * @return void
      */
-    public function setConnectionParam($host, $username, $password, $database = null, $port = null,  $settingList = [])
+    public function setConnectionParam($host, $username, $password, $database = null, $port = null, array $settingList = [])
     {
         $this->setHost($host);
         $this->setUsername($username);

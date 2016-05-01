@@ -1,15 +1,16 @@
 <?php
 namespace chilimatic\lib\Database\Sql\Querybuilder\Strategy;
 
+use chilimatic\lib\Database\Exception\QueryBuilderException;
 use chilimatic\lib\Database\Sql\Querybuilder\Meta\AbstractSQLTableData;
 use chilimatic\lib\interfaces\IFlyWeightTransformer;
 
 /**
  * Class GeneratorTrait
- *
- * @package chilimatic\lib\Database\Sql\Querybuilder\strategy
+ * @package chilimatic\lib\Database\Sql\Querybuilder\Strategy
  */
-Trait GeneratorTrait {
+Trait GeneratorTrait
+{
 
     /**
      * @var IFlyWeightTransformer
@@ -109,7 +110,7 @@ Trait GeneratorTrait {
     public function generatePredicateList(array $fieldList)
     {
         if (!$this->transformer) {
-            throw new \LogicException('Missing transformer for generic ids in SQL!');
+            throw new QueryBuilderException('Missing transformer for generic ids in SQL!');
         }
 
         $predicateList = [];
