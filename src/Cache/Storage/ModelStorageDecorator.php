@@ -1,6 +1,6 @@
 <?php
 
-namespace chilimatic\lib\Database\Cache\Handler\Storage;
+namespace chilimatic\lib\Database\Cache\Storage;
 use chilimatic\lib\Database\Sql\Orm\AbstractModel;
 
 

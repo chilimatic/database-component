@@ -37,7 +37,7 @@ Trait MySQLConnectionTypeTrait
             /**
              * Unix only setting the localhost will try to connect directly through a domainsocket
              */
-            case ($connectionSetting->getHost() === 'localhost' && mb_stripos(PHP_OS, 'win') === false):
+            case ($connectionSetting->getHost() === 'localhost' && stripos(PHP_OS, 'win') === false):
                 $this->setSocket(true);
                 break;
             /**
