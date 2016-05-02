@@ -7,8 +7,7 @@
  *
  * File: abstractmodel.class.php
  */
-namespace chilimatic\lib\Database\Sql\Orm;
-use chilimatic\lib\Database\Model\IModel;
+namespace chilimatic\lib\Database\Model;
 
 /**
  * Class AbstractModel

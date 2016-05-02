@@ -1,7 +1,7 @@
 <?php
 
 namespace chilimatic\lib\Database\Cache\Storage;
-use chilimatic\lib\Database\Sql\Orm\AbstractModel;
+use chilimatic\lib\Database\Model\AbstractModel;
 
 
 /**

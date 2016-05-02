@@ -12,7 +12,7 @@ namespace chilimatic\lib\Database\Sql\Querybuilder;
 use chilimatic\lib\Cache\Engine\ICache;
 use chilimatic\lib\Database\AbstractDatabase;
 use chilimatic\lib\Database\Cache\Handler\ModelCache;
-use chilimatic\lib\Database\sql\orm\AbstractModel;
+use chilimatic\lib\Database\Model\AbstractModel;
 use chilimatic\lib\Database\Sql\Querybuilder\Meta\AbstractSQLTableData;
 use chilimatic\lib\Interfaces\IFlyWeightTransformer;
 use chilimatic\lib\Parser\Annotation\AnnotationOrmParser;

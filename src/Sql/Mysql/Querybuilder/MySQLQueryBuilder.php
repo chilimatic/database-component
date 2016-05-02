@@ -1,7 +1,6 @@
 <?php
 namespace chilimatic\lib\Database\Sql\Mysql\Querybuilder;
 
-use chilimatic\lib\Cache\Engine\CacheFactory;
 use chilimatic\lib\Cache\Engine\ICache;
 use chilimatic\lib\Database\AbstractDatabase;
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\Meta\MySQLTableData;
@@ -9,7 +8,7 @@ use chilimatic\lib\Database\Sql\Mysql\Querybuilder\Strategy\MySQLDeleteStrategy;
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\Strategy\MySQLInsertStrategy;
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\strategy\MySQLSelectStrategy;
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\Strategy\MySQLUpdateStrategy;
-use chilimatic\lib\Database\Sql\Orm\AbstractModel;
+use chilimatic\lib\Database\Model\AbstractModel;
 use chilimatic\lib\Database\Sql\Querybuilder\AbstractQueryBuilder;
 use chilimatic\lib\Database\Sql\Querybuilder\ConsistencyTrait;
 use chilimatic\lib\Database\Sql\Querybuilder\Meta\AbstractSQLTableData;

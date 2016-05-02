@@ -10,7 +10,7 @@
 namespace chilimatic\lib\Database\Sql\Querybuilder;
 
 
-use chilimatic\lib\Database\Sql\Orm\AbstractModel;
+use chilimatic\lib\Database\Model\AbstractModel;
 
 interface IQueryBuilder
 {
