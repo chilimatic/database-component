@@ -6,7 +6,7 @@ use chilimatic\lib\Database\AbstractDatabase;
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\Meta\MySQLTableData;
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\Strategy\MySQLDeleteStrategy;
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\Strategy\MySQLInsertStrategy;
-use chilimatic\lib\Database\Sql\Mysql\Querybuilder\strategy\MySQLSelectStrategy;
+use chilimatic\lib\Database\Sql\Mysql\Querybuilder\Strategy\MySQLSelectStrategy;
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\Strategy\MySQLUpdateStrategy;
 use chilimatic\lib\Database\Model\AbstractModel;
 use chilimatic\lib\Database\Sql\Querybuilder\AbstractQueryBuilder;

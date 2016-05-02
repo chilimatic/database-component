@@ -4,6 +4,7 @@ namespace chilimatic\lib\Database\Sql\Orm;
 use chilimatic\lib\Database\Cache\ModelCache;
 use chilimatic\lib\Database\AbstractDatabase;
 use chilimatic\lib\Database\ErrorLogTrait;
+use chilimatic\lib\Database\Model\AbstractModel;
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\MySQLQueryBuilder;
 use chilimatic\lib\Database\Sql\Querybuilder\AbstractQueryBuilder;
 
