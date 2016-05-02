@@ -1,7 +1,7 @@
 <?php
 namespace chilimatic\lib\Database\Sql\Connection;
 
-use chilimatic\lib\Database\connection\IDatabaseConnectionSettings;
+use chilimatic\lib\Database\Connection\IDatabaseConnectionSettings;
 use chilimatic\lib\Interfaces\ISelfValidator;
 use chilimatic\lib\Validator\Traits\PropertyValidatorGeneratorTrait;
 
