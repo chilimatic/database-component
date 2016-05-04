@@ -92,17 +92,17 @@ class EntityManager
 
         foreach ($param as $set) {
             if (isset($set['value']) || isset($set['name'])) {
-                $value = &$set['value'];
+                $value = $set['value'];
                 $key   = $set['name'];
             } else {
-                $value = &$set[1];
+                $value = $set[1];
                 $key   = $set[0];
             }
 
             if (!$key) {
                 continue;
             }
-            $stmt->bindParam($key, $value);
+            $stmt->bindValue($key, $value);
         }
 
         return $stmt;

@@ -94,7 +94,7 @@ abstract class AbstractQueryBuilder implements IQueryBuilder
         $hd = $this->parser->parse($reflection->getDocComment());
 
         if (!empty($hd[0])) {
-            return $hd[1];
+            return $hd[0][1];
         }
 
         $table = mb_substr($reflection->getName(), mb_strlen($reflection->getNamespaceName()));
