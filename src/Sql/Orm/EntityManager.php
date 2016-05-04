@@ -7,6 +7,8 @@ use chilimatic\lib\Database\ErrorLogTrait;
 use chilimatic\lib\Database\Model\AbstractModel;
 use chilimatic\lib\Database\Sql\Mysql\Querybuilder\MySQLQueryBuilder;
 use chilimatic\lib\Database\Sql\Querybuilder\AbstractQueryBuilder;
+use chilimatic\lib\Interfaces\IFactoryOptions;
+use chilimatic\lib\Transformer\TransformerFactory;
 
 
 /**
@@ -53,6 +55,11 @@ class EntityManager
      */
     private $modelCache;
 
+    /**
+     * @var IFactoryOptions
+     */
+    private $transformerFactory;
+
 
     /**
      * @param AbstractDatabase $db
@@ -63,6 +70,7 @@ class EntityManager
         $this->db           = $db;
         $this->queryBuilder = $queryBuilder;
         $this->modelCache   = new ModelCache();
+        $this->transformerFactory = new TransformerFactory();
 
         if ($this->queryBuilder) {
             $this->queryBuilder->setDb($db);
@@ -157,14 +165,16 @@ class EntityManager
         }
         $ret = [];
 
+        $transformer = $this->transformerFactory->make('\\String\\DynamicSQLParameter', []);
+        
         foreach ($param as $key => $value) {
             if (is_array($value)) {
-                $keyString = md5($key);
+                $keyString = $transformer($key);
                 foreach ($value as $subKey => $subValue) {
-                    $ret[] =[':' . $keyString.$subKey , $subValue];
+                    $ret[] =[$keyString.$subKey , $subValue];
                 }
             } else {
-                $ret[] = [':' . md5($key), $value];
+                $ret[] = [$transformer($key), $value];
             }
 
         }
@@ -320,9 +330,16 @@ class EntityManager
     public function checkForPrimaryKey(array $modelCacheData, $model)
     {
         $className = get_class($model);
+        $transformer = $this->transformerFactory->make('\\String\\UnderScoreToCamelCase', []);
 
-        foreach ($modelCacheData[$className]['tableData']->getPrimaryKey() as $key) {
-            $getter = "get". ucfirst($key);
+        foreach ($modelCacheData[$className]['tableData']->getPrimaryKey() as $key)
+        {
+            if (strpos($key, '_') !== false){
+                $getter = "get". ucfirst($transformer($key));
+            } else {
+                $getter = "get". ucfirst($key);
+            }
+
             if (method_exists($model, $getter) && $model->{$getter}() !== null) {
                 return true;
             }
@@ -498,4 +515,19 @@ class EntityManager
         return $this;
     }
 
+    /**
+     * @return IFactoryOptions
+     */
+    public function getTransformerFactory()
+    {
+        return $this->transformerFactory;
+    }
+
+    /**
+     * @param IFactoryOptions $transformerFactory
+     */
+    public function setTransformerFactory(IFactoryOptions $transformerFactory = null)
+    {
+        $this->transformerFactory = $transformerFactory;
+    }
 }

@@ -165,6 +165,14 @@ abstract class AbstractSQLConnectionAdapter implements IDatabaseConnectionAdapte
 
 
     /**
+     * the stmt is for the pdo implementation where the amount of affected rows is in the returned stmt
+     * 
+     * @param null $stmt
+     * @return int
+     */
+    abstract public function getAffectedRows($stmt = null);
+
+    /**
      * @return mixed
      */
     public function getResource()

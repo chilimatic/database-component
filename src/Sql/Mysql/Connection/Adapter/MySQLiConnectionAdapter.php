@@ -204,4 +204,12 @@ class MySQLiConnectionAdapter extends AbstractSQLConnectionAdapter
     {
         return $this->getResource()->insert_id;
     }
+
+    /**
+     * @return int
+     */
+    public function getAffectedRows($stmt = null)
+    {
+        return $this->getResource()->affected_rows;
+    }
 }
